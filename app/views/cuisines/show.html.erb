@@ -30,8 +30,18 @@
           </div>
         </div>
       </div>
+
+      <ul class="list-group">
+      <% @cuisine.dishes.each do |dish| %>
+        <li class="list-group-item"><%= dish.name %></li>
+      <% end %>
+      </ul>
     </div>
   </div>
 </div>
 
 <!-- End responsive panel example -->
+
+
+
+
