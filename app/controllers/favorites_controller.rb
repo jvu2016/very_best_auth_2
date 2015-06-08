@@ -1,4 +1,16 @@
 class FavoritesController < ApplicationController
+
+  before_action :ensure_current_user_is_owner, :only => [:destroy, :update, :edit, :show]
+
+  def ensure_current_user_is_owner
+    @favorite = Favorite.find(params[:id])
+
+    if @favorite.user_id != current_user.id
+      redirect_to root_url, :alert => "You are not authorized for that."
+    end
+  end
+
+
   def index
     @favorites = current_user.favorites
   end
@@ -13,7 +25,7 @@ class FavoritesController < ApplicationController
 
   def create
     @favorite = Favorite.new
-    @favorite.user_id = params[:user_id]
+    @favorite.user_id = current_user
     @favorite.dish_id = params[:dish_id]
     @favorite.venue_id = params[:venue_id]
     @favorite.notes = params[:notes]

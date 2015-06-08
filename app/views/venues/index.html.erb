@@ -31,7 +31,7 @@
           <dd><%= venue.address %></dd>
 
           <dt>Neighborhood</dt>
-          <dd><%= venue.neighborhood.name %></dd>
+          <dd><%= venue.neighborhood.try(:name) %></dd>
 
         </dl>
         <div class="btn-group btn-group-justified">
