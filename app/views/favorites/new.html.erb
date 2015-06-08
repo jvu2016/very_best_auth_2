@@ -29,7 +29,11 @@
             </label>
             <div class="col-sm-10">
               <%= select_tag(:dish_id, options_from_collection_for_select(Dish.all, :id, :name, @favorite.dish_id), :class => "form-control") %>
+              <p class="help-block">
+                <a href="/dishes/new">or create a new one</a>
+              </p>
             </div>
+
           </div>
 
           <!-- Label and input for venue_id -->
@@ -39,6 +43,9 @@
             </label>
             <div class="col-sm-10">
               <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name, @favorite.venue_id), :class => "form-control") %>
+              <p class="help-block">
+                <a href="/venues/new">or create a new one</a>
+              </p>
             </div>
           </div>
 
