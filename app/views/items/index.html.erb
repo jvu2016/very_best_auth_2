@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
-    Neighborhoods
-    <a href="/neighborhoods/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
+    Items
+    <a href="/items/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
   </h1>
 </div>
 
@@ -9,38 +9,41 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <input type="text" id="quicksearch" placeholder="Search Neighborhoods (start typing)" class="form-control">
+    <input type="text" id="quicksearch" placeholder="Search Items (start typing)" class="form-control">
   </div>
 </div>
 
 <hr>
 
 <div class="row isotope-container">
-<% @neighborhoods.each do |neighborhood| %>
+<% @items.each do |item| %>
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Neighborhood #<%= neighborhood.id %></h3>
+        <h3 class="panel-title">Item #<%= item.id %></h3>
       </div>
       <div class="panel-body">
         <dl>
           <dt>Name</dt>
-          <dd><%= neighborhood.name %></dd>
+          <dd><%= item.name %></dd>
 
-          <dt>City</dt>
-          <dd><%= neighborhood.city %></dd>
+          <dt>Description</dt>
+          <dd><%= item.description.name %></dd>
+
+          <dt>Necessity_Rating</dt>
+          <dd><%= item.necessity_rating.name %></dd>
 
         </dl>
         <div class="btn-group btn-group-justified">
-          <a href="/neighborhoods/<%= neighborhood.id %>" class="btn btn-primary">
+          <a href="/items/<%= item.id %>" class="btn btn-primary">
             <i class="fa fa-search-plus"></i>
           </a>
 
-          <a href="/neighborhoods/<%= neighborhood.id %>/edit" class="btn btn-warning">
+          <a href="/items/<%= item.id %>/edit" class="btn btn-warning">
             <i class="fa fa-edit"></i>
           </a>
 
-          <a href="/delete_neighborhood/<%= neighborhood.id %>" class="btn btn-danger" rel="nofollow">
+          <a href="/delete_item/<%= item.id %>" class="btn btn-danger" rel="nofollow">
             <i class="fa fa-trash-o"></i>
           </a>
         </div>

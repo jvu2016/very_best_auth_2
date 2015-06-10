@@ -26,8 +26,7 @@ class FavoritesController < ApplicationController
   def create
     @favorite = Favorite.new
     @favorite.user_id = current_user
-    @favorite.dish_id = params[:dish_id]
-    @favorite.venue_id = params[:venue_id]
+    @favorite.activity_id = params[:activity_id]
     @favorite.notes = params[:notes]
 
     if @favorite.save
@@ -45,8 +44,7 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.find(params[:id])
 
     @favorite.user_id = params[:user_id]
-    @favorite.dish_id = params[:dish_id]
-    @favorite.venue_id = params[:venue_id]
+    @favorite.activity_id = params[:activity_id]
     @favorite.notes = params[:notes]
 
     if @favorite.save

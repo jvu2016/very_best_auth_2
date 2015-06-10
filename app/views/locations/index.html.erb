@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
-    Venues
-    <a href="/venues/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
+    Locations
+    <a href="/locations/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
   </h1>
 </div>
 
@@ -9,41 +9,38 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <input type="text" id="quicksearch" placeholder="Search Venues (start typing)" class="form-control">
+    <input type="text" id="quicksearch" placeholder="Search Locations (start typing)" class="form-control">
   </div>
 </div>
 
 <hr>
 
 <div class="row isotope-container">
-<% @venues.each do |venue| %>
+<% @locations.each do |location| %>
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Venue #<%= venue.id %></h3>
+        <h3 class="panel-title">Location #<%= location.id %></h3>
       </div>
       <div class="panel-body">
         <dl>
-          <dt>Name</dt>
-          <dd><%= venue.name %></dd>
+          <dt>City</dt>
+          <dd><%= location.city %></dd>
 
-          <dt>Address</dt>
-          <dd><%= venue.address %></dd>
-
-          <dt>Neighborhood</dt>
-          <dd><%= venue.neighborhood.try(:name) %></dd>
+          <dt>Country</dt>
+          <dd><%= location.country %></dd>
 
         </dl>
         <div class="btn-group btn-group-justified">
-          <a href="/venues/<%= venue.id %>" class="btn btn-primary">
+          <a href="/locations/<%= location.id %>" class="btn btn-primary">
             <i class="fa fa-search-plus"></i>
           </a>
 
-          <a href="/venues/<%= venue.id %>/edit" class="btn btn-warning">
+          <a href="/locations/<%= location.id %>/edit" class="btn btn-warning">
             <i class="fa fa-edit"></i>
           </a>
 
-          <a href="/delete_venue/<%= venue.id %>" class="btn btn-danger" rel="nofollow">
+          <a href="/delete_neighborhood/<%= location.id %>" class="btn btn-danger" rel="nofollow">
             <i class="fa fa-trash-o"></i>
           </a>
         </div>

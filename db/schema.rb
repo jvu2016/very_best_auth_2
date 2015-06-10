@@ -11,35 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529234943) do
+ActiveRecord::Schema.define(version: 20150610202458) do
 
-  create_table "cuisines", force: :cascade do |t|
+  create_table "activities", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "dishes", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "cuisine_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "dish_id"
-    t.integer  "venue_id"
+    t.integer  "item_id"
+    t.integer  "activity_id"
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "neighborhoods", force: :cascade do |t|
+  create_table "items", force: :cascade do |t|
+    t.integer  "activity_id"
     t.string   "name"
+    t.string   "description"
+    t.integer  "necessity_rating"
+    t.string   "url"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.integer  "activity_id"
     t.string   "city"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "country"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,13 +68,5 @@ ActiveRecord::Schema.define(version: 20150529234943) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
-  create_table "venues", force: :cascade do |t|
-    t.string   "name"
-    t.string   "address"
-    t.integer  "neighborhood_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end

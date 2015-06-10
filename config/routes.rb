@@ -5,74 +5,57 @@ Rails.application.routes.draw do
   get '/users', :controller => "users", :action => "index"
   get '/users/:id', :controller => "users", :action => "show"
 
-  # Routes for the Venue resource:
+  # Routes for the Activity resource:
   # CREATE
-  get "/venues/new", :controller => "venues", :action => "new"
-  post "/create_venue", :controller => "venues", :action => "create"
+  get "/activities/new", :controller => "activities", :action => "new"
+  post "/create_activity", :controller => "activities", :action => "create"
 
   # READ
-  get "/venues", :controller => "venues", :action => "index"
-  get "/venues/:id", :controller => "venues", :action => "show"
+  get "/activities", :controller => "activities", :action => "index"
+  get "/activities/:id", :controller => "activities", :action => "show"
 
   # UPDATE
-  get "/venues/:id/edit", :controller => "venues", :action => "edit"
-  post "/update_venue/:id", :controller => "venues", :action => "update"
+  get "/activities/:id/edit", :controller => "activities", :action => "edit"
+  post "/update_activity/:id", :controller => "activities", :action => "update"
 
   # DELETE
-  get "/delete_venue/:id", :controller => "venues", :action => "destroy"
+  get "/delete_activity/:id", :controller => "activities", :action => "destroy"
   #------------------------------
 
   root "favorites#index"
 
-  # Routes for the Neighborhood resource:
+  # Routes for the Location resource:
   # CREATE
-  get "/neighborhoods/new", :controller => "neighborhoods", :action => "new"
-  post "/create_neighborhood", :controller => "neighborhoods", :action => "create"
+  get "/locations/new", :controller => "locations", :action => "new"
+  post "/create_location", :controller => "locations", :action => "create"
 
   # READ
-  get "/neighborhoods", :controller => "neighborhoods", :action => "index"
-  get "/neighborhoods/:id", :controller => "neighborhoods", :action => "show"
+  get "/locations", :controller => "locations", :action => "index"
+  get "/locations/:id", :controller => "locations", :action => "show"
 
   # UPDATE
-  get "/neighborhoods/:id/edit", :controller => "neighborhoods", :action => "edit"
-  post "/update_neighborhood/:id", :controller => "neighborhoods", :action => "update"
+  get "/locations/:id/edit", :controller => "locations", :action => "edit"
+  post "/update_location/:id", :controller => "locations", :action => "update"
 
   # DELETE
-  get "/delete_neighborhood/:id", :controller => "neighborhoods", :action => "destroy"
+  get "/delete_location/:id", :controller => "locations", :action => "destroy"
   #------------------------------
 
-  # Routes for the Dish resource:
+  # Routes for the Item resource:
   # CREATE
-  get "/dishes/new", :controller => "dishes", :action => "new"
-  post "/create_dish", :controller => "dishes", :action => "create"
+  get "/items/new", :controller => "items", :action => "new"
+  post "/create_item", :controller => "items", :action => "create"
 
   # READ
-  get "/dishes", :controller => "dishes", :action => "index"
-  get "/dishes/:id", :controller => "dishes", :action => "show"
+  get "/items", :controller => "items", :action => "index"
+  get "/items/:id", :controller => "items", :action => "show"
 
   # UPDATE
-  get "/dishes/:id/edit", :controller => "dishes", :action => "edit"
-  post "/update_dish/:id", :controller => "dishes", :action => "update"
+  get "/items/:id/edit", :controller => "items", :action => "edit"
+  post "/update_item/:id", :controller => "items", :action => "update"
 
   # DELETE
-  get "/delete_dish/:id", :controller => "dishes", :action => "destroy"
-  #------------------------------
-
-  # Routes for the Cuisine resource:
-  # CREATE
-  get "/cuisines/new", :controller => "cuisines", :action => "new"
-  post "/create_cuisine", :controller => "cuisines", :action => "create"
-
-  # READ
-  get "/cuisines", :controller => "cuisines", :action => "index"
-  get "/cuisines/:id", :controller => "cuisines", :action => "show"
-
-  # UPDATE
-  get "/cuisines/:id/edit", :controller => "cuisines", :action => "edit"
-  post "/update_cuisine/:id", :controller => "cuisines", :action => "update"
-
-  # DELETE
-  get "/delete_cuisine/:id", :controller => "cuisines", :action => "destroy"
+  get "/delete_item/:id", :controller => "items", :action => "destroy"
   #------------------------------
 
   # Routes for the Favorite resource:

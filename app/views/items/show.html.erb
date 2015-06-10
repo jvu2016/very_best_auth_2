@@ -4,30 +4,25 @@
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Dish #<%= @dish.id %></h3>
+        <h3 class="panel-title">Item #<%= @item.id %></h3>
       </div>
       <div class="panel-body">
         <div class="row">
           <div class="col-md-12">
             <dl class="dl-horizontal">
               <dt>Name</dt>
-              <dd><%= @dish.name %></dd>
+              <dd><%= @item.name %></dd>
 
-              <dt>Cuisine</dt>
-              <dd><%= @dish.cuisine.name %></dd>
+              <dt>Description</dt>
+              <dd><%= @item.description.name %></dd>
+
+              <dt>Necessity Rating</dt>
+              <dd><%= @item.necessity_rating.name %></dd>
 
             </dl>
             <div class="btn-group btn-group-justified">
-              <a href="/dishes" class="btn btn-primary">
+              <a href="/items" class="btn btn-primary">
                 <i class="fa fa-chevron-left"></i>
-              </a>
-
-              <a href="/dishes/<%= @dish.id %>/edit" class="btn btn-warning">
-                <i class="fa fa-edit"></i>
-              </a>
-
-              <a href="/delete_dish/<%= @dish.id %>" class="btn btn-danger" rel="nofollow">
-                <i class="fa fa-trash-o"></i>
               </a>
             </div>
           </div>
@@ -35,11 +30,11 @@
       </div>
 
       <ul class="list-group">
-      <% @dish.favorites.each do |favorite| %>
+        <% @item.favorites.each do |favorite| %>
         <li class="list-group-item">
           <%= favorite.user.username %> likes <%= favorite.venue.name %>
         </li>
-      <% end %>
+        <% end %>
       </ul>
 
     </div>

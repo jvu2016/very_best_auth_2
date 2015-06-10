@@ -1,7 +1,7 @@
 <!-- Validation failure messages -->
 
-<% if @neighborhood.errors.any? %>
-  <% @neighborhood.errors.full_messages.each do |message| %>
+<% if @location.errors.any? %>
+  <% @location.errors.full_messages.each do |message| %>
     <div class="alert alert-dismissable alert-danger">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <%= message %>
@@ -15,22 +15,12 @@
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Edit Neighborhood #<%= @neighborhood.id %></h3>
+        <h3 class="panel-title">Add Location</h3>
       </div>
       <div class="panel-body">
-        <form action="/update_neighborhood/<%= @neighborhood.id %>" method="post" class="form-horizontal">
+        <form action="/create_location" method="post" class="form-horizontal">
           <!-- Hidden input for authenticity token to protect from forgery -->
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-          <!-- Label and input for name -->
-          <div class="form-group">
-            <label for="name" class="col-sm-2 control-label">
-              Name
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @neighborhood.name %>">
-            </div>
-          </div>
 
           <!-- Label and input for city -->
           <div class="form-group">
@@ -38,17 +28,27 @@
               City
             </label>
             <div class="col-sm-10">
-              <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @neighborhood.city %>">
+              <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @location.city %>">
+            </div>
+          </div>
+
+          <!-- Label and input for Country -->
+          <div class="form-group">
+            <label for="country" class="col-sm-2 control-label">
+              Country
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="country" name="country" placeholder="Country" class="form-control" value="<%= @location.country %>">
             </div>
           </div>
 
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <button class="btn btn-warning">
-                Update Neighborhood
+              <button class="btn btn-success">
+                Create Location
               </button>
               or
-              <a href="/neighborhoods/<%= @neighborhood.id %>">Cancel</a>
+              <a href="/locations">Cancel</a>
             </div>
           </div>
         </form>
@@ -56,6 +56,5 @@
     </div>
   </div>
 </div>
-
 
 <!-- End responsive panel example -->

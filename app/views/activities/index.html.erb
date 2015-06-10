@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
-    Dishes
-    <a href="/dishes/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
+    Activities
+    <a href="/activities/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
   </h1>
 </div>
 
@@ -9,38 +9,35 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <input type="text" id="quicksearch" placeholder="Search Dishes (start typing)" class="form-control">
+    <input type="text" id="quicksearch" placeholder="Search Activities (start typing)" class="form-control">
   </div>
 </div>
 
 <hr>
 
 <div class="row isotope-container">
-<% @dishes.each do |dish| %>
+<% @activities.each do |activity| %>
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Dish #<%= dish.id %></h3>
+        <h3 class="panel-title">Activity #<%= activity.id %></h3>
       </div>
       <div class="panel-body">
         <dl>
           <dt>Name</dt>
-          <dd><%= dish.name %></dd>
-
-          <dt>Cuisine</dt>
-          <dd><%= dish.cuisine.name %></dd>
+          <dd><%= activity.name %></dd>
 
         </dl>
         <div class="btn-group btn-group-justified">
-          <a href="/dishes/<%= dish.id %>" class="btn btn-primary">
+          <a href="/activities/<%= activity.id %>" class="btn btn-primary">
             <i class="fa fa-search-plus"></i>
           </a>
 
-          <a href="/dishes/<%= dish.id %>/edit" class="btn btn-warning">
+          <a href="/activities/<%= activity.id %>/edit" class="btn btn-warning">
             <i class="fa fa-edit"></i>
           </a>
 
-          <a href="/delete_dish/<%= dish.id %>" class="btn btn-danger" rel="nofollow">
+          <a href="/delete_activity/<%= activity.id %>" class="btn btn-danger" rel="nofollow">
             <i class="fa fa-trash-o"></i>
           </a>
         </div>

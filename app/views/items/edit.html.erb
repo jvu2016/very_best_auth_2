@@ -1,7 +1,7 @@
 <!-- Validation failure messages -->
 
-<% if @dish.errors.any? %>
-  <% @dish.errors.full_messages.each do |message| %>
+<% if @item.errors.any? %>
+  <% @item.errors.full_messages.each do |message| %>
     <div class="alert alert-dismissable alert-danger">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <%= message %>
@@ -15,10 +15,10 @@
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Edit Dish #<%= @dish.id %></h3>
+        <h3 class="panel-title">Edit Item #<%= @item.id %></h3>
       </div>
       <div class="panel-body">
-        <form action="/update_dish/<%= @dish.id %>" method="post" class="form-horizontal">
+        <form action="/update_item/<%= @item.id %>" method="post" class="form-horizontal">
           <!-- Hidden input for authenticity token to protect from forgery -->
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -28,27 +28,38 @@
               Name
             </label>
             <div class="col-sm-10">
-              <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @dish.name %>">
+              <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @item.name %>">
             </div>
           </div>
 
-          <!-- Label and input for cuisine_id -->
+           <!-- Label and input for description -->
           <div class="form-group">
-            <label for="cuisine_id" class="col-sm-2 control-label">
-              Cuisine
+            <label for="description" class="col-sm-2 control-label">
+              Description
             </label>
             <div class="col-sm-10">
-              <%= select_tag(:cuisine_id, options_from_collection_for_select(Cuisine.all, :id, :name, @dish.cuisine_id), :class => "form-control") %>
+              <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="<%= @item.description %>">
             </div>
           </div>
+
+          <!-- Label and input for necessity_rating -->
+          <div class="form-group">
+            <label for="necessity_rating" class="col-sm-2 control-label">
+              Necessity Rating
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="necesssity_rating" name="necessity_rating" placeholder="Necessity_Rating" class="form-control" value="<%= @item.necessity_rating %>">
+            </div>
+          </div>
+
 
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
               <button class="btn btn-warning">
-                Update Dish
+                Update Item
               </button>
               or
-              <a href="/dishes/<%= @dish.id %>">Cancel</a>
+              <a href="/items/<%= @item.id %>">Cancel</a>
             </div>
           </div>
         </form>
