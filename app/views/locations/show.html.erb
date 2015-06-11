@@ -10,6 +10,9 @@
         <div class="row">
           <div class="col-md-12">
             <dl class="dl-horizontal">
+            <dt>Activity</dt>
+              <dd><%= @activities.find(@location.activity_id).name %></dd>
+
               <dt>City</dt>
               <dd><%= @location.city %></dd>
 
@@ -26,12 +29,12 @@
         </div>
       </div>
 
-        </li>
-      </ul>
+    </li>
+  </ul>
 
 
-    </div>
-  </div>
+</div>
+</div>
 </div>
 
 <!-- End responsive panel example -->

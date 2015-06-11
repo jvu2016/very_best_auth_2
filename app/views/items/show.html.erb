@@ -16,6 +16,9 @@
               <dt>Description</dt>
               <dd><%= @item.description %></dd>
 
+              <dt>Activity</dt>
+              <dd><%= @activities.find(@item.activity_id).name %></dd>
+
               <dt>Necessity Rating</dt>
               <dd><%= @item.necessity_rating %></dd>
 

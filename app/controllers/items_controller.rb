@@ -1,10 +1,12 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all
+    @activities = Activity.all
   end
 
   def show
     @item = Item.find(params[:id])
+    @activities = Activity.all
   end
 
   def new
@@ -14,6 +16,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new
     @item.name = params[:name]
+    @item.activity_id = params[:activity_id]
     @item.description = params[:description]
     @item.necessity_rating = params[:necessity_rating]
 
@@ -32,6 +35,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
 
     @item.name = params[:name]
+    @item.activity_id = params[:activity_id]
     @item.description = params[:description]
     @item.necessity_rating = params[:necessity_rating]
 

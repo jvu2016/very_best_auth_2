@@ -1,11 +1,12 @@
 class LocationsController < ApplicationController
   def index
     @locations = Location.all
+    @activities = Activity.all
   end
 
   def show
     @location = Location.find(params[:id])
-    @activity = Activity.new
+    @activities = Activity.all
   end
 
   def new
@@ -16,6 +17,7 @@ class LocationsController < ApplicationController
     @location = Location.new
     @location.city = params[:city]
     @location.country = params[:country]
+    @location.activity_id = params[:activity_id]
 
     if @location.save
       redirect_to :back, :notice => "Location created successfully."
@@ -26,6 +28,7 @@ class LocationsController < ApplicationController
 
   def edit
     @location = Location.find(params[:id])
+
   end
 
   def update
@@ -33,6 +36,7 @@ class LocationsController < ApplicationController
 
     @location.city = params[:city]
     @location.country = params[:country]
+    @location.activity_id = params[:activity_id]
 
     if @location.save
       redirect_to "/locations", :notice => "Location updated successfully."

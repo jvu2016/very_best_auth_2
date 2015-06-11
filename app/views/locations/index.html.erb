@@ -16,7 +16,7 @@
 <hr>
 
 <div class="row isotope-container">
-<% @locations.each do |location| %>
+  <% @locations.each do |location| %>
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -24,29 +24,32 @@
       </div>
       <div class="panel-body">
         <dl>
-          <dt>City</dt>
-          <dd><%= location.city %></dd>
+         <dt>Activity</dt>
+         <dd><%= @activities.find(location.activity_id).name %></dd>
 
-          <dt>Country</dt>
-          <dd><%= location.country %></dd>
+         <dt>City</dt>
+         <dd><%= location.city %></dd>
 
-        </dl>
-        <div class="btn-group btn-group-justified">
-          <a href="/locations/<%= location.id %>" class="btn btn-primary">
-            <i class="fa fa-search-plus"></i>
-          </a>
+         <dt>Country</dt>
+         <dd><%= location.country %></dd>
 
-          <a href="/locations/<%= location.id %>/edit" class="btn btn-warning">
-            <i class="fa fa-edit"></i>
-          </a>
+       </dl>
+       <div class="btn-group btn-group-justified">
+        <a href="/locations/<%= location.id %>" class="btn btn-primary">
+          <i class="fa fa-search-plus"></i>
+        </a>
 
-          <a href="/delete_neighborhood/<%= location.id %>" class="btn btn-danger" rel="nofollow">
-            <i class="fa fa-trash-o"></i>
-          </a>
-        </div>
+        <a href="/locations/<%= location.id %>/edit" class="btn btn-warning">
+          <i class="fa fa-edit"></i>
+        </a>
+
+        <a href="/delete_neighborhood/<%= location.id %>" class="btn btn-danger" rel="nofollow">
+          <i class="fa fa-trash-o"></i>
+        </a>
       </div>
     </div>
   </div>
+</div>
 <% end %>
 </div>
 

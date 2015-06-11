@@ -42,13 +42,23 @@
             </div>
           </div>
 
+          <!-- Label and input for activity_id -->
+          <div class="form-group">
+            <label for="activity_id" class="col-sm-2 control-label">
+              Activity
+            </label>
+            <div class="col-sm-10">
+            <%= select_tag(:activity_id, options_from_collection_for_select(Activity.all, :id, :name, @item.activity_id), :class => "form-control") %>
+            </div>
+          </div>
+
           <!-- Label and input for necessity_rating -->
           <div class="form-group">
-            <label for="necessity rating" class="col-sm-2 control-label">
+            <label for="necessity_rating" class="col-sm-2 control-label">
               Necessity Rating
             </label>
             <div class="col-sm-10">
-              <input type="text" id="necessity rating" name="necessity rating" placeholder="Rank from 1 (Nice to Have) to 5 (Absolutely Necessary)" class="form-control" value="<%= @item.necessity_rating %>">
+              <input type="text" id="necessity_rating" name="necessity_rating" placeholder="Rank from 1 (Nice to Have) to 5 (Absolutely Necessary)" class="form-control" value="<%= @item.necessity_rating %>">
             </div>
           </div>
 

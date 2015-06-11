@@ -8,6 +8,8 @@ class ActivitiesController < ApplicationController
 
   def show
     @activity = Activity.find(params[:id])
+    @locations = Location.where(activity_id: params[:id])
+    @items = Item.where(activity_id: params[:id])
   end
 
   def new

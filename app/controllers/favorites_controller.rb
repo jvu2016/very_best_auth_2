@@ -21,11 +21,12 @@ class FavoritesController < ApplicationController
 
   def new
     @favorite = Favorite.new
+    @favorite.user_id = current_user.id
   end
 
   def create
     @favorite = Favorite.new
-    @favorite.user_id = current_user
+    @favorite.user_id = current_user.id
     @favorite.activity_id = params[:activity_id]
     @favorite.notes = params[:notes]
 

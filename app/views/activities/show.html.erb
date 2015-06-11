@@ -35,4 +35,29 @@
   </div>
 </div>
 
+<h2>Location(s)</h2>
+<div class="row">
+  <ol>
+    <% @locations.each do |location| %>
+
+    <li><a target="_blank" href="https://www.google.com/search?btnG=1&pws=0&q=<%= location.city %>"><%= location.city %></a>, <%= location.country %></li>
+
+    <% end %>
+  </ol>
+</div>
+
+<h2>Suggested Thing(s) to Buy</h2>
+<div class="row">
+ <ol>
+  <% @items.each do |item| %>
+
+  <li>
+    <strong> Name</strong>: <a target="_blank"  href="https://www.google.com/search?btnG=1&pws=0&q=<%= item.name %>"> <%= item.name %>  </a> <br />
+    <strong> Description</strong>: <%= item.description %> <br />
+    <strong> Necessity Rating</strong>: <%= item.necessity_rating %>
+  </li>
+
+  <% end %>
+</ol>
+</div>
 <!-- End responsive panel example -->
