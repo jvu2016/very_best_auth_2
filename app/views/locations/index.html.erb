@@ -24,14 +24,15 @@
       </div>
       <div class="panel-body">
         <dl>
-         <dt>Activity</dt>
-         <dd><%= @activities.find(location.activity_id).name %></dd>
 
          <dt>Name</dt>
          <dd><%= location.city %></dd>
 
          <dt>Region</dt>
          <dd><%= location.country %></dd>
+
+         <dt>Activity</dt>
+         <dd><%= @activities.find(location.activity_id).name %></dd>
 
        </dl>
        <div class="btn-group btn-group-justified">

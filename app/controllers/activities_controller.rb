@@ -35,7 +35,6 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
 
     @activity.name = params[:name]
-    @activity.location_id = params[:location_id]
 
     if @activity.save
       redirect_to "/activities", :notice => "Activity updated successfully."

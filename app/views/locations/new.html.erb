@@ -22,16 +22,6 @@
           <!-- Hidden input for authenticity token to protect from forgery -->
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-          <!-- Label and input for activity_id -->
-          <div class="form-group">
-            <label for="activity_id" class="col-sm-2 control-label">
-              Activity
-            </label>
-            <div class="col-sm-10">
-              <%= select_tag(:activity_id, options_from_collection_for_select(Activity.all, :id, :name, @location.activity_id), :class => "form-control") %>
-            </div>
-          </div>
-
           <!-- Label and input for city -->
           <div class="form-group">
             <label for="city" class="col-sm-2 control-label">
@@ -49,6 +39,16 @@
             </label>
             <div class="col-sm-10">
               <input type="text" id="country" name="country" placeholder="City/State, Country" class="form-control" value="<%= @location.country %>">
+            </div>
+          </div>
+
+          <!-- Label and input for activity_id -->
+          <div class="form-group">
+            <label for="activity_id" class="col-sm-2 control-label">
+              Activity
+            </label>
+            <div class="col-sm-10">
+              <%= select_tag(:activity_id, options_from_collection_for_select(Activity.all, :id, :name, @location.activity_id), :class => "form-control") %>
             </div>
           </div>
 
